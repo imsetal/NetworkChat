@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkchat.HelloController">
+   <children>
+      <GridPane layoutX="210.0" layoutY="253.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="428.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.0" minWidth="10.0" prefWidth="596.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="539.0" minHeight="10.0" prefHeight="507.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="377.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="377.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <MenuBar prefHeight="40.0" prefWidth="705.0" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <menus>
+                        <Menu mnemonicParsing="false" text="传输文件" />
+                     </menus>
+                  </MenuBar>
+                  <ListView fx:id="chat_window" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <TextArea fx:id="chat_area" prefHeight="221.0" prefWidth="705.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="send_button" mnemonicParsing="false" onAction="#sendButtonClick" text="发送" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="chat_info" alignment="CENTER_RIGHT" textFill="#a30000" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="90.0">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="friends" onSelectionChanged="#showFriendsList" text="好友">
+                     <content>
+                        <ListView fx:id="friends_list" prefHeight="200.0" prefWidth="200.0" />
+                     </content></Tab>
+                  <Tab fx:id="group" onSelectionChanged="#showGroupList" text="群聊">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="group_list" prefHeight="738.6666666666666" prefWidth="428.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="create_group" mnemonicParsing="false" onAction="#onCreateGroupButtonClick" text="创建群聊" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font></Button>
+                              <Label fx:id="add_group_info" alignment="CENTER_RIGHT" layoutX="347.0" layoutY="635.0" textFill="#a40000" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="正在局域网里的人">
+                     <content>
+                        <ListView prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="添加好友/群聊">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="add_user_name" alignment="CENTER" layoutX="20.0" layoutY="156.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font></TextField>
+                              <Button fx:id="search_user" layoutX="166.0" layoutY="217.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="搜索用户">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="104.0" text="通过用户名添加好友吧" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei UI Light" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutY="338.0" prefHeight="26.0" prefWidth="197.0" text="通过群聊名称加入群聊" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="add_group_name" alignment="CENTER" layoutX="20.0" layoutY="391.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="search_group" layoutX="166.0" layoutY="451.0" mnemonicParsing="false" onAction="#onSearchGroupButtonClick" text="加入群聊">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font></Button>
+                              <Label fx:id="add_info" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="540.0" textAlignment="CENTER" textFill="#c30000" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0">
+                                 <font>
+                                    <Font name="Microsoft YaHei Light" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="480.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkchat.HelloController">
+   <children>
+      <Label alignment="CENTER" layoutX="29.0" layoutY="54.0" text="创建群聊" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Microsoft YaHei Light" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="add_group" layoutX="132.0" layoutY="292.0" mnemonicParsing="false" onAction="#onAddGroupButtonClick" text="创建群聊" />
+      <TextField fx:id="add_group_name" alignment="CENTER" layoutX="60.0" layoutY="230.0" />
+      <Label alignment="CENTER" layoutX="157.0" layoutY="189.0" text="为群聊起个名字吧" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="add_group_info" alignment="CENTER" layoutX="158.0" layoutY="377.0" textFill="#a40101" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>
